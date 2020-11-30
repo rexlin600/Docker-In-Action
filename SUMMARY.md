@@ -20,7 +20,6 @@
   * [运行镜像](good-at-image/instance-image.md)
   * [镜像导入](good-at-image/import-image.md)
   * [镜像载入与保存](good-at-image/load-or-save-image.md)
-  * [原理剖析](good-at-image/principle-analysis.md)
 * [玩转容器](good-at-container/README.md)
   * [查看容器](good-at-container/list-container.md)
   * [停止/删除容器](good-at-container/stop-and-rm-container.md)
