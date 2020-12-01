@@ -9,7 +9,7 @@
 * [阿里云加速器](https://www.aliyun.com/)（可登陆阿里云，在`容器镜像服务-镜像加速器` 中查看）
 * [网易云加速器](https://hub-mirror.c.163.com/)
 * [腾讯云加速器](https://mirror.ccs.tencentyun.com/)
-* [DaoCloud加速器](http://f1361db2.m.daocloud.io)
+* [Dao Cloud加速器](http://f1361db2.m.daocloud.io)
 * [百度云加速器](https://mirror.baidubce.com)
 
 ## Ubuntu 16.04+、Debian 8+、CentOS 7+
