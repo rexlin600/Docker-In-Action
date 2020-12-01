@@ -34,6 +34,22 @@ sudo sed -i 's/download.docker.com/mirrors.aliyun.com\/docker-ce/g' /etc/yum.rep
 #     https://download.docker.com/linux/centos/docker-ce.repo
 ```
 
+## CentOS 8 额外设置
+
+由于 CentOS8 防火墙使用了 `nftables`，但 Docker 尚未支持 `nftables`，因此我们需要修改一个配置文件：`/etc/firewalld/firewalld.conf`，我们可以使用如下设置使用 `iptables`：
+
+```text
+# FirewallBackend=nftables
+FirewallBackend=iptables
+```
+
+或者执行下面的命令：
+
+```text
+firewall-cmd --permanent --zone=trusted --add-interface=docker0
+firewall-cmd --reload
+```
+
 ## 安装 Docker
 
 ```text
@@ -51,6 +67,10 @@ yum list docker-ce.x86_64 --showduplicates | sort -r
 
 # 安装指定版本，替换下面的 [VERSION] 为上面查看列表中你需要的 Docker 版本
 sudo yum -y install docker-ce-[VERSION]
+
+# 启动 docker
+sudo systemctl enable docker
+sudo systemctl start docker
 ```
 
 
