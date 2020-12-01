@@ -20,6 +20,8 @@ Options:
   -q, --quiet                   Suppress verbose output
 ```
 
+### 从 Docker Hub 拉取
+
 关于拉取镜像时镜像的名称格式可以参考 [基本概念-仓库-命令格式](../chapter-1-basic-concepts/repository.md#ming-ming-gui-fan)，下面给出一个从 Docker Hub 拉取镜像的示例（拉取缓慢请先配置[镜像加速器](../chapter-2-install-tutorial/mirror-accelerator.md)）：
 
 ```text
@@ -42,6 +44,34 @@ docker.io/library/ubuntu:latest
 * 未指定 `tag` 则拉取标签为 `latest` 的镜像；
 * 镜像是分层存储的，下载过程中会给出 `12` 位长度的镜像 `ID`；下载完成后悔给出镜像的完整 `sha256` 摘要，确保下载一致性
 * 如果你下载时和我这里的 `ID` 或 `sha256` 不一致是因为镜像会有官方持续胡，任何更改都会以原来的标签重新发布，从而确保用户能够一直使用这个标签获取最稳定、安全的镜像
+
+### 从私有 Registry 拉取
+
+如果你正在使用私有 Registry 或使用云服务商提供的容器服务，你可以通过指定一个地址拉取镜像，格式一般为： `<Registry 域名>:[端口]/<用户名/命名空间>/<软件名>:<标签>` 的方式拉取镜像，这里以从阿里云拉取镜像为例：
+
+```text
+# 登陆到私有 Registry
+sudo docker login --username=<username> registry.cn-chengdu.aliyuncs.com
+
+# 拉取镜像
+sudo docker pull registry.cn-chengdu.aliyuncs.com/ms4cloud/eureka:[镜像版本号]
+...
+```
+
+## 推送镜像
+
+推送镜像使用 docker push 命令，可以查看 Docker 命令帮助了解更多细节，如下：
+
+```text
+$ docker push --help
+
+Usage:	docker push [OPTIONS] NAME[:TAG]
+
+Push an image or a repository to a registry
+
+Options:
+      --disable-content-trust   Skip image signing (default true)
+```
 
 
 
