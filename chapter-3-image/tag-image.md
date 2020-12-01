@@ -17,5 +17,3 @@ $ docker tag httpd fedora/httpd:version1.0
 $ docker tag httpd:test fedora/httpd:version1.0.test
 ```
 
-
-
