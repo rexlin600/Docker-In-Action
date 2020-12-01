@@ -14,7 +14,7 @@ brew cask install docker
 
 如果需要手动下载，请点击以下链接下载 [Stable](https://download.docker.com/mac/stable/Docker.dmg) 或 [Edge](https://download.docker.com/mac/edge/Docker.dmg) 版本的 Docker Desktop for Mac。安装完成后打开如下：
 
-![](../.gitbook/assets/image%20%285%29.png)
+![](../.gitbook/assets/image%20%286%29.png)
 
 这里就不再赘述了，傻瓜式安装。可以参考 [官方文档](https://docs.docker.com/docker-for-mac/install/) 进行安装。
 
