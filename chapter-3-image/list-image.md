@@ -15,7 +15,7 @@
 * `docker image ls`
 * `docker images`（笔者习惯使用这个命令）
 
-我们先看下 docker images 命令，：
+我们先看下 docker images 命令：
 
 ```text
 $ docker images --help
@@ -52,6 +52,10 @@ ubuntu        latest   f643c72bc252    5 days ago    72.9MB
 
 ###  虚悬镜像
 
+在下面的示例中可以看到显示了一个仓库名、标签均为 `<none>` 的镜像，这个镜像称之为 **dangling image**，也叫**虚悬镜像**。
+
+虚悬镜像一般是因为拉取镜像时，官方维护的镜像更新了，因此旧的镜像上的这个名称就被取消了，新的镜像保留其名称。当然，在构建镜像时也可能会出现，原理是一样的。
+
 ```text
 $ docker images
 # 仓库名称     标签名称   镜像ID          创建时间       镜像大小
@@ -60,8 +64,6 @@ ubuntu        latest   f643c72bc252    5 days ago    72.9MB
 <none>        <none>   a8a07b74a7fd    24 hours ago  79.1MB
 ...
 ```
-
-可以看到显示了一个仓库名、标签均为 `<none>` 的镜像，这个镜像称之为 **dangling image**，也叫**虚悬镜像**。虚悬镜像一般是因为拉取镜像时，官方维护的镜像更新了，因此旧的镜像上的这个名称就被取消了，新的镜像保留其名称。
 
 我们可以通过使用如下命令来查看所有的虚悬镜像：
 
