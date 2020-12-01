@@ -25,7 +25,7 @@ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 
 ```text
 OPTIONS：
-  --restart	       容器退出时重新启动策略以应用
+  --restart	       容器退出时重新启动策略以应用 yes或no
 
   -d               后台运行容器并返回容器ID
   -i               交互模式运行容器，常常与 -t 同时使用
@@ -54,6 +54,8 @@ OPTIONS：
   
   --link=[]        添加链接到另一个容器
   --expose=[]      开发一个端口或一组端口
+  
   --voule，-v      绑定一个卷     
+  --volumes-from	 从指定的容器装载卷
 ```
 
