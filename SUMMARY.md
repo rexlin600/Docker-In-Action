@@ -1,8 +1,7 @@
 # Table of contents
 
-* [简介](README.md)
+* [导读](README.md)
 * [修订记录](history.md)
-* [Docker 简介](docker-introduction.md)
 * [基本概念](basic-concepts/README.md)
   * [镜像](basic-concepts/image.md)
   * [容器](basic-concepts/container.md)
