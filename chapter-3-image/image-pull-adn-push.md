@@ -73,7 +73,35 @@ Options:
       --disable-content-trust   Skip image signing (default true)
 ```
 
+无论你是想要将镜像推送到 Docker Hub 或者其他私有镜像仓库，都应该遵循如下基本步骤：
 
+* 登陆到 Registry
+* 给镜像打标签
+* 推送镜像
+
+下面是我将一个本地镜像推送到阿里云 Registry 的过程：
+
+```text
+# 登陆
+$ docker login --username=rexlin600 registry.cn-chengdu.aliyuncs.com
+Password:
+Login Succeeded
+
+# 打标签
+docker tag eureka_eureka:latest registry.cn-chengdu.aliyuncs.com/rexlin600/eureka:latest
+
+# 推送镜像
+docker push registry.cn-chengdu.aliyuncs.com/rexlin600/eureka:latest
+The push refers to repository [registry.cn-chengdu.aliyuncs.com/rexlin600/eureka]
+ad2ddf25e2bb: Preparing
+e602bce8fe9b: Preparing
+b3a7582fea88: Preparing
+a52fcbff5465: Preparing
+767f936afb51: Preparing
+denied: requested access to the resource is denied
+MacBook-Pro:opt rexlin600$ docker rmi registry.cn-chengdu.aliyuncs.com/rexlin600/eureka:latest
+Untagged: registry.cn-chengdu.aliyuncs.com/rexlin600/eureka:latest
+```
 
 
 

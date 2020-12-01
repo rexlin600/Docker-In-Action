@@ -65,13 +65,13 @@ ubuntu        latest   f643c72bc252    5 days ago    72.9MB
 ...
 ```
 
-我们可以通过使用如下命令来查看所有的虚悬镜像：
+我们可以通过使用如下命令来**查看所有的虚悬镜像**：
 
 ```bash
 $ docker image ls -f dangling=true
 ```
 
-一般来说，虚悬镜像是没有意义的，可以随意删除，可使用如下命令删除虚悬镜像：
+一般来说，虚悬镜像是没有意义的，可以随意删除，可使用如下命令**删除虚悬镜像**：
 
 ```bash
 $ docker image prune
@@ -101,7 +101,7 @@ redis         latest   36t3242bc252    5 days ago    72.9MB
 
 需要说明的是，Docker Hub 中指明的镜像并不等同于实际拉取下来的镜像大小，前者显示的体积是压缩后的体积，关注的是在网络传输中消耗的流量大小。
 
-我们可以使用下述命令查看镜像、容器、数据卷所占用的空间：
+我们可以使用下述命令**查看镜像、容器、数据卷所占用的空间**：
 
 ```bash
 $ docker system df
@@ -115,9 +115,9 @@ MacBook-Pro:opt rexlin600$
 
 ### 格式化输出
 
-有时候我们可能会有这样的情况，电脑屏幕同时开了多个 shell 窗口，如果直接查看镜像的话内容会折叠起来，不方便查看。
+有时候我们可能会有这样的情况，电脑屏幕同时开了多个 `shell` 窗口，如果直接查看镜像的话内容会折叠起来，不方便查看。
 
-我们可以使用格式化的方式来查看镜像，如下：
+我们可以使用格式化的方式来查看镜像（格式化字符串需遵循 [Go 模板语法](https://gohugo.io/templates/introduction/)），如下：
 
 ```bash
 # 只查看 镜像ID、仓库:Tag 的格式化输出
@@ -129,9 +129,121 @@ $ docker images --format "{{.ID}}\t {{.Repository}}:{{.Tag}}"
 
 ## 查看详细信息
 
+我们可以使用 docker inspect 命令来查看 Docker 镜像的详细信息，命令格式如下：
 
+```bash
+$ docker image inspect --help
 
+Usage:	docker image inspect [OPTIONS] IMAGE [IMAGE...]
 
+Display detailed information on one or more images
+
+Options:
+  -f, --format string   格式化输出
+```
+
+通过此命令查看镜像详细信息示例如下：
+
+```bash
+$ docker image inspect ubuntu:latest
+[
+    {
+        # 基本信息
+        "Id": "sha256:f643c72bc25212974c16f3348b3a898b1ec1eb13ec1539e10a103e6e217eb2f1",
+        "RepoTags": [
+            "ubuntu:latest"
+        ],
+        # 仓库摘要
+        "RepoDigests": [
+            "ubuntu@sha256:c95a8e48bf88e9849f3e0f723d9f49fa12c5a00cfc6e60d2bc99d87555295e4c"
+        ],
+        "Parent": "",
+        "Comment": "",
+        "Created": "2020-11-25T22:25:29.546718343Z",
+        "Container": "0672cd8bc2236c666c647f97effe707c8f6ba9783da7e88763c8d46c69dc174a",
+        # 容器配置信息
+        "ContainerConfig": {
+            "Hostname": "0672cd8bc223",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "/bin/sh",
+                "-c",
+                "#(nop) ",
+                "CMD [\"/bin/bash\"]"
+            ],
+            "Image": "sha256:28e90b4e135b38b4dd5efd0045019a2c8bfb7e114383e3a4ae80b1ec0dcaaf79",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "DockerVersion": "19.03.12",
+        "Author": "",
+        # 配置信息
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "/bin/bash"
+            ],
+            "Image": "sha256:28e90b4e135b38b4dd5efd0045019a2c8bfb7e114383e3a4ae80b1ec0dcaaf79",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": null
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 72898198,
+        "VirtualSize": 72898198,
+        # 驱动信息
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/da8d5559b75e8e2164372c7153faff74c8c8e77b173e0e243c149ba091199b1f/diff:/var/lib/docker/overlay2/ded43b7032183e12eac6be8d25a3eb682a21a944a885ee0bf699d9c1a4e2bf1a/diff",
+                "MergedDir": "/var/lib/docker/overlay2/5e9ade0dedd8a776f81015b0d0e7b0df0bfc445a9d9d99a4435bcc1494c76004/merged",
+                "UpperDir": "/var/lib/docker/overlay2/5e9ade0dedd8a776f81015b0d0e7b0df0bfc445a9d9d99a4435bcc1494c76004/diff",
+                "WorkDir": "/var/lib/docker/overlay2/5e9ade0dedd8a776f81015b0d0e7b0df0bfc445a9d9d99a4435bcc1494c76004/work"
+            },
+            "Name": "overlay2"
+        },
+        # root 文件系统信息
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:bacd3af13903e13a43fe87b6944acd1ff21024132aad6e74b4452d984fb1a99a",
+                "sha256:9069f84dbbe96d4c50a656a05bbe6b6892722b0d1116a8f7fd9d274f4e991bf6",
+                "sha256:f6253634dc78da2f2e3bee9c8063593f880dc35d701307f30f65553e0f50c18c"
+            ]
+        },
+        # 元数据
+        "Metadata": {
+            "LastTagTime": "0001-01-01T00:00:00Z"
+        }
+    }
+]
+```
 
 
 
