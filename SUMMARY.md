@@ -1,7 +1,8 @@
 # Table of contents
 
 * [导读](README.md)
-* [修订记录](history.md)
+* [修订记录](edit-history.md)
+* [背景](hsitory.md)
 * [基本概念](basic-concepts/README.md)
   * [镜像](basic-concepts/image.md)
   * [容器](basic-concepts/container.md)
