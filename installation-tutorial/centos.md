@@ -73,5 +73,17 @@ sudo systemctl enable docker
 sudo systemctl start docker
 ```
 
+## 添加用户组
 
+默认情况下，只有 root 用户以及 docker 组的用户才可以访问 Docker 引擎的 `Unix Socket`，出于安全考虑，我们一般不建议直接使用 root 用户。当然，笔者也知道很多公司为了简单直接是直接使用 root 用户的，还是看习惯及管理方式吧。
+
+但是笔者还是建议将需要使用 docker 的用户加入到 docker 用户组，避免直接使用 root 用户：
+
+```text
+# 建立 docker 用户组
+sudo groupadd docker
+
+# 将当前用户加入到用户组
+sudo usermod -aG docker $USER
+```
 
