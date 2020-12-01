@@ -54,5 +54,7 @@
 * [最佳实践](chapter-9-best-practices/README.md)
   * [Dockerfile](chapter-9-best-practices/best-practice-dockerfile.md)
   * [Docker Compose](chapter-9-best-practices/best-practice--docker-compose.md)
-* [附录](chapter-10-appendix.md)
+* [附录](chapter-10-appendix/README.md)
+  * [附录一：常见问题](chapter-10-appendix/common-question.md)
+  * [附录二：参考文档](chapter-10-appendix/reference.md)
 
