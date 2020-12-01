@@ -111,6 +111,20 @@ Build Cache         0                   0                   0B                  
 MacBook-Pro:opt rexlin600$
 ```
 
+### 格式化输出
+
+有时候我们可能会有这样的情况，电脑屏幕同时开了多个 shell 窗口，如果直接查看镜像的话内容会折叠起来，不方便查看。
+
+我们可以使用格式化的方式来查看镜像，如下：
+
+```bash
+# 只查看 镜像ID、仓库:Tag 的格式化输出
+$ docker images --format "{{.ID}}\t {{.Repository}}:{{.Tag}}"
+6e254207f4e2	 registry.cn-chengdu.aliyuncs.com/ms4cloud/docker-docs:latest
+6704fa7d9f30	 registry.cn-chengdu.aliyuncs.com/ms4cloud/portainer:1.24.1
+...
+```
+
 ## 查看详细信息
 
 
