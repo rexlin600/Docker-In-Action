@@ -25,6 +25,8 @@ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 
 ```text
 OPTIONS：
+  --restart	       容器退出时重新启动策略以应用
+
   -d               后台运行容器并返回容器ID
   -i               交互模式运行容器，常常与 -t 同时使用
   -t               为容器分配一个伪输入终端，常常与 -i 同时使用
@@ -32,18 +34,21 @@ OPTIONS：
   -P               随机端口映射，容器内部端口映射到主机端口
   -p               指定端口映射，格式：<主机端口>:<容器端口>
   
+  --label , -l		 在容器上设置元数据
   --name           指定容器名称
   
   --dns            指定容器使用的DNS服务器，默认和主机一致
   --dns-search     指定容器的DNS搜索域名，默认和主机一致
   
   -h               指定容器的hostname
+  -m               容器使用的最大内存值
   
   --entrypoint		 覆盖容器的默认ENTRYPOINT
   -e               指定环境变量，如：-e TZ="Asia/Shanghai"
+  --mount		       将文件系统挂载附加到容器
   --env-file=[]    从指定文件读入环境变量
   
-  -m               容器使用的最大内存值
+
   
   --net="bridge"   指定容器的网络连接类型，支持 bridge/host/none/container 四种
   
