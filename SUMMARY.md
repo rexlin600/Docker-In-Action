@@ -2,7 +2,7 @@
 
 * [前言](README.md)
 * [修订记录](revision-record.md)
-* [背景](docker-history.md)
+* [背景](2-docker-history.md)
 * [基本概念](chapter-1-basic-concepts/README.md)
   * [注册服务器](chapter-1-basic-concepts/registry.md)
   * [镜像](chapter-1-basic-concepts/image.md)
