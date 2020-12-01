@@ -163,56 +163,13 @@ $ docker image inspect ubuntu:latest
         "Container": "0672cd8bc2236c666c647f97effe707c8f6ba9783da7e88763c8d46c69dc174a",
         # 容器配置信息
         "ContainerConfig": {
-            "Hostname": "0672cd8bc223",
-            "Domainname": "",
-            "User": "",
-            "AttachStdin": false,
-            "AttachStdout": false,
-            "AttachStderr": false,
-            "Tty": false,
-            "OpenStdin": false,
-            "StdinOnce": false,
-            "Env": [
-                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-            ],
-            "Cmd": [
-                "/bin/sh",
-                "-c",
-                "#(nop) ",
-                "CMD [\"/bin/bash\"]"
-            ],
-            "Image": "sha256:28e90b4e135b38b4dd5efd0045019a2c8bfb7e114383e3a4ae80b1ec0dcaaf79",
-            "Volumes": null,
-            "WorkingDir": "",
-            "Entrypoint": null,
-            "OnBuild": null,
-            "Labels": {}
+            ...
         },
         "DockerVersion": "19.03.12",
         "Author": "",
         # 配置信息
         "Config": {
-            "Hostname": "",
-            "Domainname": "",
-            "User": "",
-            "AttachStdin": false,
-            "AttachStdout": false,
-            "AttachStderr": false,
-            "Tty": false,
-            "OpenStdin": false,
-            "StdinOnce": false,
-            "Env": [
-                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-            ],
-            "Cmd": [
-                "/bin/bash"
-            ],
-            "Image": "sha256:28e90b4e135b38b4dd5efd0045019a2c8bfb7e114383e3a4ae80b1ec0dcaaf79",
-            "Volumes": null,
-            "WorkingDir": "",
-            "Entrypoint": null,
-            "OnBuild": null,
-            "Labels": null
+            ...
         },
         "Architecture": "amd64",
         "Os": "linux",
@@ -245,11 +202,53 @@ $ docker image inspect ubuntu:latest
 ]
 ```
 
+同样的，也可以使用 --format 参数进行格式化显示部分信息：
 
+```bash
+# 查看容器状态
+$ docker inspect -f '{{.State.Status}}' $(docker ps -aq)
+$ docker inspect --format='{{.State.Status}}' $(docker ps -aq)
 
+# 可以通过级联调用直接读取子对象 State 的 Status 属性，以获取容器的状态信息：
+$ docker inspect --format '{{/*读取容器状态*/}}{{.State.Status}}' $INSTANCE_ID   
 
+# 获取容器IP
+$ docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -q)
+$ docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' docker-test1
+
+# 获取容器 MAC 地址
+$ docker inspect --format='{{range .NetworkSettings.Networks}}{{.MacAddress}}{{end}}' $(docker ps -a -q)
+
+# 获取容器Name
+$ docker inspect --format='{{.Name}}' $(docker ps -aq)
+
+# 获取容器 HostName
+docker inspect --format '{{ .Config.Hostname }}' $(docker ps -q)
+
+#获取容器 Hostname Name IP
+$ docker inspect --format 'Hostname:{{ .Config.Hostname }}  Name:{{.Name}} IP:{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -q)
+
+# 获取容器的image镜像名称
+$ docker inspect --format='{{.Config.Image}}' `docker ps -a -q`
+
+# 获取容器绑定的端口(port bindings)
+$ docker inspect --format='{{range $p, $conf := .NetworkSettings.Ports}} {{$p}} -> {{(index $conf 0).HostPort}} {{end}}' `docker ps -a -q`
+$ docker inspect --format='{{range $p, $conf := .NetworkSettings.Ports}} {{$p}} -> {{(index $conf 0).HostPort}} {{end}}' docker-test1
+ 
+```
 
 ## 查看镜像历史
 
+我们如果想要查看一个镜像的构建历史，可以使用 `docker history` 命令，命令语法格式如下：
 
+```bash
+docker image history [OPTIONS] IMAGE
+
+Options
+
+--format		Pretty-print images using a Go template
+--human , -H	true	Print sizes and dates in human readable format
+--no-trunc		Don’t truncate output
+--quiet , -q		Only show numeric IDs    
+```
 
