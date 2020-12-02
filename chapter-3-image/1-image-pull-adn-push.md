@@ -22,7 +22,7 @@ Options:
 
 ### 从 Docker Hub 拉取
 
-关于拉取镜像时镜像的名称格式可以参考 [基本概念-仓库-命令格式](../chapter-1-basic-concepts/repository.md#ming-ming-gui-fan)，下面给出一个从 Docker Hub 拉取镜像的示例（拉取缓慢请先配置[镜像加速器](../chapter-2-install-tutorial/mirror-accelerator.md)）：
+关于拉取镜像时镜像的名称格式可以参考 [基本概念-仓库-命令格式](../chapter-1-basic-concepts/4-repository.md#ming-ming-gui-fan)，下面给出一个从 Docker Hub 拉取镜像的示例（拉取缓慢请先配置[镜像加速器](../chapter-2-install-tutorial/3-mirror-accelerator.md)）：
 
 ```text
 # 拉取 ubuntu 镜像

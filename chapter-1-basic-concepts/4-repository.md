@@ -30,7 +30,7 @@ Docker Registry 公开服务是开放给用户使用、允许用户管理镜像�
 
 由于某些原因，在国内访问这些服务可能会比较慢。国内的一些云服务商提供了针对 Docker Hub 的镜像服务（`Registry Mirror`），这些镜像服务被称为 **加速器**。常见的有 [阿里云加速器](https://cr.console.aliyun.com/#/accelerator)、[DaoCloud 加速器](https://www.daocloud.io/mirror#accelerator-doc) 等。使用加速器会直接从国内的地址下载 Docker Hub 的镜像，参考镜像加速器一节：
 
-{% page-ref page="../chapter-2-install-tutorial/mirror-accelerator.md" %}
+{% page-ref page="../chapter-2-install-tutorial/3-mirror-accelerator.md" %}
 
 国内也有一些云服务商提供类似于 Docker Hub 的公开服务。比如 [网易云镜像服务](https://c.163.com/hub#/m/library/)、[DaoCloud 镜像市场](https://hub.daocloud.io/)、[阿里云镜像库](https://cr.console.aliyun.com) 等。
 
