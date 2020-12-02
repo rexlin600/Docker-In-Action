@@ -13,6 +13,8 @@ Docker 的底层的核心技术如下四类：
 
 ## 命名空间
 
+[参考文章](https://www.cnblogs.com/bakari/p/8560437.html)
+
 ### pid namespace
 
 
