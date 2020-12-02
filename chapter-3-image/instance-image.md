@@ -119,7 +119,7 @@ registry.cn-chengdu.aliyuncs.com/ms4cloud/docker-docs:latest
 
 ### Eureka
 
-你需要提前构建好自己的 Eureka 镜像，
+你需要提前构建好自己的 Eureka 镜像，构建 Eureka 镜像的 Dockerfile 请参考文末。
 
 ```text
 docker run -d --name="eureka-server" \
