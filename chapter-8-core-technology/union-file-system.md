@@ -30,10 +30,10 @@ RootFS 可以被看成一个类 Unix 操作系统，其中包含 Linux 系统的
 
 | Linux 发行版 | Docker 推荐使用的存储驱动 |
 | :--- | :--- |
-| Docker on Ubuntu | `overlay2` \(16.04 +\) |
-| Docker on Debian | `overlay2` \(Debian Stretch\), `aufs`, `devicemapper` |
-| Docker on CentOS | `overlay2` |
-| Docker on Fedora | `overlay2` |
+| Docker CE on Ubuntu | `aufs`, `devicemapper`, `overlay2` \(Ubuntu 14.04.4 +, 16.04 +\), `overlay`, `zfs`, `vfs` |
+| Docker CE on Debian | `aufs`, `devicemapper`, `overlay2` \(Debian Stretch\), `overlay`, `vfs` |
+| Docker CE on CentOS | `devicemapper`, `vfs` |
+| Docker CE on Fedora | `devicemapper`, `overlay2` \(Fedora 26 +\), `overlay` \(实验性支持\), `vfs` |
 
 在可能的情况下，[Docker 官方推荐](https://docs.docker.com/storage/storagedriver/select-storage-driver/) 使用 `overlay2` 存储驱动，因为`overlay2` 是目前 Docker 默认的存储驱动，以前则是 `aufs`。你可以通过配置来使用以上提到的其他类型的存储驱动。
 
