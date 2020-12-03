@@ -16,7 +16,7 @@ Copyint clone(int (*child_func)(void *), void *child_stack, int flags, void *arg
 
 clone\(\) 函数相信大家都不陌生了，它是 fork\(\) 函数更通用的实现方式，通过调用 clone\(\)，并传入需要隔离资源对应的参数，就可以建立一个容器了（隔离什么我们自己控制）。
 
-一个容器进程也可以再 clone\(\) 出一个容器进程，这是容器的嵌套。
+一个容器进程也可以再 clone\(\) 出一个容器进程，这是容器的嵌套：
 
 ![](../.gitbook/assets/image%20%2811%29.png)
 
