@@ -4,7 +4,7 @@
 
 容器和虚拟机一样，都是虚拟化的产品，都包括计算虚拟化，存储虚拟化和 IO 虚拟化。容器作为轻量级的进程，不像虚拟机那般复杂，这三块分别靠三个 Driver 来完成的，`execdriver` 负责计算虚拟化，`networkdriver` 负责网络虚拟化，`graphdriver` 负责存储虚拟化。由此可见，Docker 靠 Driver 这种设计思想来支撑起它的基础平台，如下图（图片来自互联网）：
 
-![](../.gitbook/assets/image%20%2814%29.png)
+![](../.gitbook/assets/image%20%2816%29.png)
 
 ## Docker 引擎
 
