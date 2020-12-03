@@ -11,7 +11,9 @@ Docker 的底层的核心技术如下四类：
 
 下面，我们来分别来看下 Docker 的底层核心技术。
 
+## 参考
 
+* [Docker 核心技术与实现原理](https://www.cnblogs.com/davidshen/p/10490605.html)
 
 
 
