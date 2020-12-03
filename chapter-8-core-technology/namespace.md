@@ -48,7 +48,7 @@ clone\(\) 函数相信大家都不陌生了，它是 fork\(\) 函数更通用的
 
 一个容器进程也可以再 clone\(\) 出一个容器进程，这是容器的嵌套：
 
-![](../.gitbook/assets/image%20%2811%29.png)
+![](../.gitbook/assets/image%20%2812%29.png)
 
 如果想要查看当前进程下有哪些 namespace 隔离，可以查看文件 /proc/\[pid\]/ns （注：该方法仅限于 3.8 版本以后的内核）。
 
